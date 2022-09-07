@@ -1,11 +1,11 @@
-## CocoaHeads Taipei 2022-08-11 - Stage Manager using Xcode ##
+## CocoaHeads Taipei Discussion Topics ##
 
-### What is Stage Manager and does it matter?
+### September 2022
+1. Displaying download percent progress and saving the downloaded item to the Photo Album:
+- How to use URLSession
+- Display relevant information (download percent progress) and possibly remaining time to complete the download
+- Enable cancel download
 
-### Should you buy a new iPad now?
+2. Handling dependency callback using PromiseKit and Swift Coroutine
 
-### What software and hardware requirements to enable Stage Manager?
-
-### Activating Stage Manager using Xcode Simulator
-
-### Demo Time
+### August 2022 - How to Enable Stage Manager from Xcode
