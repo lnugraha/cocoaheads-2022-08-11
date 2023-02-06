@@ -4,7 +4,6 @@
 1. Monitoring download progress using Live Activities
 2. Monitoring download progress using Dynamic Island 
 
-
 ### September 2022
 1. Displaying download percent progress and saving the downloaded item to the Photo Album:
 - How to use URLSession
