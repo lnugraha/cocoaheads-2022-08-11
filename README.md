@@ -10,7 +10,7 @@
 
 **Future Improvements:**
 1. Enable cancel button to terminate an ongoing download
-2. Enable background activity, as iOS will suspend 
+2. Enable background activity, as iOS will suspend apps that are running in the background really quickly
 3. Disable download button if a download is ongoing to ensure that Live Activity banner is only initiated once
 
 ### September 2022
