@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D22BB512990B29500CDFF1B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D22BB502990B29500CDFF1B /* WidgetKit.framework */; };
+		2D22BB532990B29500CDFF1B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D22BB522990B29500CDFF1B /* SwiftUI.framework */; };
+		2D22BB562990B29500CDFF1B /* download_progress_dynamic_islandBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22BB552990B29500CDFF1B /* download_progress_dynamic_islandBundle.swift */; };
+		2D22BB582990B29500CDFF1B /* download_progress_dynamic_islandLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22BB572990B29500CDFF1B /* download_progress_dynamic_islandLiveActivity.swift */; };
+		2D22BB5A2990B29500CDFF1B /* download_progress_dynamic_island.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D22BB592990B29500CDFF1B /* download_progress_dynamic_island.swift */; };
+		2D22BB5C2990B29600CDFF1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D22BB5B2990B29600CDFF1B /* Assets.xcassets */; };
+		2D22BB602990B29600CDFF1B /* download_progress_dynamic_islandExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2D22BB4E2990B29500CDFF1B /* download_progress_dynamic_islandExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2DBE45E828C7438800CE2309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE45E728C7438800CE2309 /* AppDelegate.swift */; };
 		2DBE45EA28C7438800CE2309 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE45E928C7438800CE2309 /* SceneDelegate.swift */; };
 		2DBE45EC28C7438800CE2309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE45EB28C7438800CE2309 /* ViewController.swift */; };
@@ -15,7 +22,39 @@
 		2DBE45F428C7438800CE2309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DBE45F228C7438800CE2309 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2D22BB5E2990B29600CDFF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DBE45DC28C7438700CE2309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D22BB4D2990B29500CDFF1B;
+			remoteInfo = download_progress_dynamic_islandExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2D22BB612990B29600CDFF1B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2D22BB602990B29600CDFF1B /* download_progress_dynamic_islandExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2D22BB4E2990B29500CDFF1B /* download_progress_dynamic_islandExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = download_progress_dynamic_islandExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D22BB502990B29500CDFF1B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2D22BB522990B29500CDFF1B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2D22BB552990B29500CDFF1B /* download_progress_dynamic_islandBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = download_progress_dynamic_islandBundle.swift; sourceTree = "<group>"; };
+		2D22BB572990B29500CDFF1B /* download_progress_dynamic_islandLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = download_progress_dynamic_islandLiveActivity.swift; sourceTree = "<group>"; };
+		2D22BB592990B29500CDFF1B /* download_progress_dynamic_island.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = download_progress_dynamic_island.swift; sourceTree = "<group>"; };
+		2D22BB5B2990B29600CDFF1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D22BB5D2990B29600CDFF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DBE45E428C7438800CE2309 /* download_progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = download_progress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBE45E728C7438800CE2309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DBE45E928C7438800CE2309 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +66,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2D22BB4B2990B29500CDFF1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D22BB532990B29500CDFF1B /* SwiftUI.framework in Frameworks */,
+				2D22BB512990B29500CDFF1B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2DBE45E128C7438800CE2309 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +85,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D22BB4F2990B29500CDFF1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D22BB502990B29500CDFF1B /* WidgetKit.framework */,
+				2D22BB522990B29500CDFF1B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D22BB542990B29500CDFF1B /* download_progress_dynamic_island */ = {
+			isa = PBXGroup;
+			children = (
+				2D22BB552990B29500CDFF1B /* download_progress_dynamic_islandBundle.swift */,
+				2D22BB572990B29500CDFF1B /* download_progress_dynamic_islandLiveActivity.swift */,
+				2D22BB592990B29500CDFF1B /* download_progress_dynamic_island.swift */,
+				2D22BB5B2990B29600CDFF1B /* Assets.xcassets */,
+				2D22BB5D2990B29600CDFF1B /* Info.plist */,
+			);
+			path = download_progress_dynamic_island;
+			sourceTree = "<group>";
+		};
 		2DBE45DB28C7438700CE2309 = {
 			isa = PBXGroup;
 			children = (
 				2DBE45E628C7438800CE2309 /* download_progress */,
+				2D22BB542990B29500CDFF1B /* download_progress_dynamic_island */,
+				2D22BB4F2990B29500CDFF1B /* Frameworks */,
 				2DBE45E528C7438800CE2309 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				2DBE45E428C7438800CE2309 /* download_progress.app */,
+				2D22BB4E2990B29500CDFF1B /* download_progress_dynamic_islandExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +142,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2D22BB4D2990B29500CDFF1B /* download_progress_dynamic_islandExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D22BB642990B29600CDFF1B /* Build configuration list for PBXNativeTarget "download_progress_dynamic_islandExtension" */;
+			buildPhases = (
+				2D22BB4A2990B29500CDFF1B /* Sources */,
+				2D22BB4B2990B29500CDFF1B /* Frameworks */,
+				2D22BB4C2990B29500CDFF1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = download_progress_dynamic_islandExtension;
+			productName = download_progress_dynamic_islandExtension;
+			productReference = 2D22BB4E2990B29500CDFF1B /* download_progress_dynamic_islandExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2DBE45E328C7438800CE2309 /* download_progress */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DBE45F828C7438800CE2309 /* Build configuration list for PBXNativeTarget "download_progress" */;
@@ -77,10 +166,12 @@
 				2DBE45E028C7438800CE2309 /* Sources */,
 				2DBE45E128C7438800CE2309 /* Frameworks */,
 				2DBE45E228C7438800CE2309 /* Resources */,
+				2D22BB612990B29600CDFF1B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2D22BB5F2990B29600CDFF1B /* PBXTargetDependency */,
 			);
 			name = download_progress;
 			productName = download_progress;
@@ -94,9 +185,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					2D22BB4D2990B29500CDFF1B = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					2DBE45E328C7438800CE2309 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -116,11 +210,20 @@
 			projectRoot = "";
 			targets = (
 				2DBE45E328C7438800CE2309 /* download_progress */,
+				2D22BB4D2990B29500CDFF1B /* download_progress_dynamic_islandExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2D22BB4C2990B29500CDFF1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D22BB5C2990B29600CDFF1B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2DBE45E228C7438800CE2309 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,6 +237,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2D22BB4A2990B29500CDFF1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D22BB5A2990B29500CDFF1B /* download_progress_dynamic_island.swift in Sources */,
+				2D22BB582990B29500CDFF1B /* download_progress_dynamic_islandLiveActivity.swift in Sources */,
+				2D22BB562990B29500CDFF1B /* download_progress_dynamic_islandBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2DBE45E028C7438800CE2309 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -145,6 +258,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D22BB5F2990B29600CDFF1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D22BB4D2990B29500CDFF1B /* download_progress_dynamic_islandExtension */;
+			targetProxy = 2D22BB5E2990B29600CDFF1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2DBE45ED28C7438800CE2309 /* Main.storyboard */ = {
@@ -166,6 +287,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2D22BB622990B29600CDFF1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V87HJBA4K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = download_progress_dynamic_island/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = download_progress_dynamic_island;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leochen.download-progress.download-progress-dynamic-island";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D22BB632990B29600CDFF1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V87HJBA4K;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = download_progress_dynamic_island/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = download_progress_dynamic_island;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leochen.download-progress.download-progress-dynamic-island";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2DBE45F628C7438800CE2309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -283,6 +462,7 @@
 		2DBE45F928C7438800CE2309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -311,6 +491,7 @@
 		2DBE45FA28C7438800CE2309 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,6 +520,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2D22BB642990B29600CDFF1B /* Build configuration list for PBXNativeTarget "download_progress_dynamic_islandExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D22BB622990B29600CDFF1B /* Debug */,
+				2D22BB632990B29600CDFF1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2DBE45DF28C7438700CE2309 /* Build configuration list for PBXProject "download_progress" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

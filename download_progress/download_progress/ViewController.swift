@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import Foundation
+import ActivityKit
 
 let TARGET_URL: String = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
@@ -25,14 +26,17 @@ class ViewController: UIViewController {
     private lazy var progressBar: UIProgressView = {
         let progress = UIProgressView()
         progress.setProgress(0.0, animated: true)
-        progress.progressTintColor = .systemBlue
+        progress.progressTintColor = .systemOrange
         return progress
     }()
 
     private lazy var downloadButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
-        button.setTitle("DOWNLOAD NOW", for: .normal)
+        button.backgroundColor = .orange
+        button.setTitle("Download Now", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 14
+        button.clipsToBounds = true
         button.addTarget(self, action: #selector(downloadButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -49,12 +53,20 @@ class ViewController: UIViewController {
         print("Cancel button tapped")
     }
 
-    // TODO: - How this part needs to be adjusted
     @objc private func downloadButtonTapped() {
         print("Downloading an item starts now")
         
         // TODO: - Display % progress, but the closure is removed
         let task = self.urlSessionDownload.downloadTask(with: URL(string: TARGET_URL)!)
+        
+        if #available(iOS 16.1, *) {
+            launchDownloadProgressActivity(percentDownloaded: 0.0,
+                                           downloadFileSize: 0.0,
+                                           totalFileSize: 1000.0)
+        } else {
+            // Fallback on earlier versions
+        }
+        
         task.resume()
     }
 
@@ -107,12 +119,15 @@ extension ViewController: URLSessionDownloadDelegate {
                 }) { completed, error in
                     if completed {
                         print("\(#function) \(#line): Download is saved to Photo Album")
+                        if #available(iOS 16.1, *) {
+                            terminateDownloadProgressActivity()
+                        } else {
+                            // Fallback on earlier versions
+                        }
                     } // end-if completed
                 }
             } // end DispatchQueue.main.async
         } // end-if
-        
-        
     }
 
     func urlSession(_ session: URLSession,
@@ -120,8 +135,17 @@ extension ViewController: URLSessionDownloadDelegate {
                     didWriteData bytesWritten: Int64,
                     totalBytesWritten: Int64,
                     totalBytesExpectedToWrite: Int64) {
+
         let calculatedProgress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
         DispatchQueue.main.async {
+
+            if #available(iOS 16.1, *) {
+                updateDownloadProgressActivity(percentDownloaded: Double(calculatedProgress * 100.0),
+                                               downloadFileSize: Double(totalBytesWritten))
+            } else {
+                // Fallback on earlier versions
+            }
+
             self.progressBar.setProgress(calculatedProgress, animated: true)
             print("Download Progress: \(calculatedProgress*100.0)%")
         }
@@ -129,3 +153,58 @@ extension ViewController: URLSessionDownloadDelegate {
     
 }
 
+// MARK: - Live Activities
+struct DownloadProgressAttributes: ActivityAttributes {
+
+    public struct ContentState: Codable, Hashable {
+        var percentProgress: Double
+        var downloadProgress: Double
+    }
+
+    var totalFileSize: Double
+}
+
+@available(iOS 16.1, *)
+func launchDownloadProgressActivity(percentDownloaded: Double,
+                                    downloadFileSize: Double,
+                                    totalFileSize: Double) {
+    
+    let downloadProgressAttribute = DownloadProgressAttributes(totalFileSize: totalFileSize)
+    let initialContentState = DownloadProgressAttributes.ContentState(percentProgress: percentDownloaded,
+                                                                      downloadProgress: downloadFileSize)
+
+    do {
+        let downloadActivity = try Activity<DownloadProgressAttributes>.request(attributes: downloadProgressAttribute,
+                                                                                contentState: initialContentState,
+                                                                                pushType: nil)
+        print("\(#function) at line: \(#line): Live Activity has been initialized successfully (\(downloadActivity.id))")
+
+    } catch (let error) {
+        print("\(#function) at line: \(#line): An error happened while initializing Live Activity")
+    }
+    
+}
+
+@available(iOS 16.1, *)
+func terminateDownloadProgressActivity() {
+    Task {
+        for activity in Activity<DownloadProgressAttributes>.activities{
+            await activity.end(dismissalPolicy: .immediate)
+        }
+    }
+}
+
+@available(iOS 16.1, *)
+func updateDownloadProgressActivity(percentDownloaded: Double,
+                                    downloadFileSize: Double) {
+
+    Task {
+        let updatedDownloadProgressStatus = DownloadProgressAttributes.ContentState(percentProgress: percentDownloaded,
+                                                                                    downloadProgress: downloadFileSize)
+
+        for activity in Activity<DownloadProgressAttributes>.activities{
+            await activity.update(using: updatedDownloadProgressStatus)
+        }
+    }
+
+}
