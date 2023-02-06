@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     private lazy var downloadButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .blue
+        button.setTitle("DOWNLOAD NOW", for: .normal)
         button.addTarget(self, action: #selector(downloadButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -53,40 +54,7 @@ class ViewController: UIViewController {
         print("Downloading an item starts now")
         
         // TODO: - Display % progress, but the closure is removed
-        // let task = self.urlSessionDownload.downloadTask(with: URL(string: TARGET_URL)!)
-        
-        // TODO: - The closure stays and video can be saved, but display % progress does not increment
-
-        /*
-        let task = self.urlSessionDownload.downloadTask(with: URL(string: TARGET_URL)!) { url, response, error in
-            guard let urlUnwrapped = url else { return }
-            if let urlData = NSData(contentsOf: urlUnwrapped) {
-                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                let filePath = "\(documentsPath)/TEST_VIDEO_FILE.mp4"
-                DispatchQueue.main.async {
-                    urlData.write(toFile: filePath, atomically: true)
-                    PHPhotoLibrary.shared().performChanges({
-                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL(fileURLWithPath: filePath))
-                    }) { completed, error in
-                        if completed {
-                            print("Download is completed")
-                        } else {
-                            print("Download failed")
-                        } // end-if completed
-                    }
-                }
-            } // end-if
-        }
-         */
-    
-        let task = self.urlSessionDownload.downloadTask(with: URL(string: TARGET_URL)!) { url, response, error in
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let filePath = "\(documentsPath)/TEMP_VIDEO_FILE.mp4"
-            // DispatchQueue.global(qos: .background).async {
-                UISaveVideoAtPathToSavedPhotosAlbum(filePath, nil, "video:didFinishSavingWithError:contextInfo:", nil)
-            // }
-        }
-
+        let task = self.urlSessionDownload.downloadTask(with: URL(string: TARGET_URL)!)
         task.resume()
     }
 
@@ -123,11 +91,35 @@ class ViewController: UIViewController {
 
 extension ViewController: URLSessionDownloadDelegate {
 
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("Download is complete")
+    func urlSession(_ session: URLSession,
+                    downloadTask: URLSessionDownloadTask,
+                    didFinishDownloadingTo location: URL) {
+        print("\(#function) \(#line): Download is complete")
+
+        if let urlData = NSData(contentsOf: location) {
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+            let filePath="\(documentsPath)/BUNNY_VIDEO.mp4"
+
+            DispatchQueue.global(qos: .background).async {
+                urlData.write(toFile: filePath, atomically: true)
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL(fileURLWithPath: filePath))
+                }) { completed, error in
+                    if completed {
+                        print("\(#function) \(#line): Download is saved to Photo Album")
+                    } // end-if completed
+                }
+            } // end DispatchQueue.main.async
+        } // end-if
+        
+        
     }
 
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    func urlSession(_ session: URLSession,
+                    downloadTask: URLSessionDownloadTask,
+                    didWriteData bytesWritten: Int64,
+                    totalBytesWritten: Int64,
+                    totalBytesExpectedToWrite: Int64) {
         let calculatedProgress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
         DispatchQueue.main.async {
             self.progressBar.setProgress(calculatedProgress, animated: true)
