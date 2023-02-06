@@ -1,5 +1,9 @@
 ## CocoaHeads Taipei Discussion Topics ##
 
+### February 2023 - Monitoring progress using iOS 16 Live Activities (and Dynamic Island)
+1. Monitoring download progress using Live Activities
+2. Monitoring download progress using Dynamic Island
+
 ### September 2022
 1. Displaying download percent progress and saving the downloaded item to the Photo Album:
 - How to use URLSession
